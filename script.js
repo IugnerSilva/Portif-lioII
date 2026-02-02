@@ -95,24 +95,97 @@ if (track && prevButton && nextButton) {
         track.style.transform = `translateX(-${currentIndex * amountToMove}px)`;
     };
 
-    nextButton.addEventListener('click', () => {
-        const maxIndex = cards.length - itemsPerPage;
-        if (currentIndex < maxIndex) {
-            currentIndex++;
-        } else {
-            currentIndex = 0;
-        }
-        updateCarousel();
+    // Touch Swipe Logic
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isDragging = false;
+    let startTransform = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        isDragging = true;
+
+        // Get current transform value
+        const style = window.getComputedStyle(track);
+        const matrix = new WebKitCSSMatrix(style.transform);
+        startTransform = matrix.m41;
+
+        // Disable transition while dragging for instant feedback
+        track.style.transition = 'none';
+    }, { passive: true });
+
+    track.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const diff = currentX - touchStartX;
+
+        // Apply movement to track
+        track.style.transform = `translateX(${startTransform + diff}px)`;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        touchEndX = e.changedTouches[0].clientX;
+
+        // Restore transition
+        track.style.transition = 'transform 0.5s ease-out';
+
+        handleGesture();
     });
 
-    prevButton.addEventListener('click', () => {
+    // Re-set transition on updateCarousel to ensure it's smooth
+    const originalUpdate = updateCarousel;
+    const smoothUpdate = () => {
+        track.style.transition = 'transform 0.5s ease-out';
+        originalUpdate();
+    };
+
+    const handleGesture = () => {
+        const threshold = 50; // pixels to trigger slide
+        const diff = touchStartX - touchEndX;
         const maxIndex = cards.length - itemsPerPage;
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            currentIndex = maxIndex;
+
+        if (diff > threshold) {
+            // Swipe Left -> Next Slide
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            }
+        } else if (diff < -threshold) {
+            // Swipe Right -> Prev Slide
+            if (currentIndex > 0) {
+                currentIndex--;
+            }
         }
-        updateCarousel();
+
+        // Final alignment
+        smoothUpdate();
+    };
+
+    // Keep click delegation for desktop or fallback buttons
+    document.addEventListener('click', (e) => {
+        const isNext = e.target.closest('.next-btn');
+        const isPrev = e.target.closest('.prev-btn');
+
+        if (isNext) {
+            const maxIndex = cards.length - itemsPerPage;
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            smoothUpdate();
+        }
+
+        if (isPrev) {
+            const maxIndex = cards.length - itemsPerPage;
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = maxIndex;
+            }
+            smoothUpdate();
+        }
     });
 
     // Update on resize
