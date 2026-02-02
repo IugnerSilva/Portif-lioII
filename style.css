@@ -10,10 +10,12 @@
     font-family: "Poppins", sans-serif;
 }
 
+html,
 body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     width: 100%;
-    max-width: 100vw;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
@@ -918,10 +920,7 @@ section.active {
     }
 
     .home-img .img-box .img-item img {
-        top: 0;
-        right: 15px;
         width: 100%;
-        /* Ajuste para caber no container */
         height: 100%;
         object-fit: cover;
     }
@@ -972,13 +971,18 @@ section.active {
         height: 40vh;
     }
 
-    .home-detail .btn-sci .sci {
-        margin-top: 0;
-        margin-left: -2vh;
-        top: 55vh;
-        position: absolute;
+    .home-btns {
         display: flex;
-        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .home-detail .btn-sci .sci {
+        position: relative;
+        top: 0;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
         gap: 1rem;
     }
 
@@ -1017,20 +1021,17 @@ section.active {
     }
 
     .home-img .img-box .img-item img {
-        top: 0;
-        right: 10px;
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
     .home-detail .btn-sci .sci {
-        margin-top: 0;
-        margin-left: -2vh;
-        top: 55vh;
-        position: absolute;
+        position: relative;
+        top: 0;
+        margin: 2rem 0;
         display: flex;
-        flex-direction: row;
+        justify-content: center;
         gap: 1rem;
     }
 
@@ -1115,14 +1116,11 @@ section.active {
 
     .home-detail .btn-sci .sci {
         position: relative;
-        /* Remove absolute positioning */
         top: 0;
-        margin: 0;
+        margin: 2rem 0;
         display: flex;
-        flex-direction: row;
-        /* Horizontal icons on mobile looks better usually, or keep row */
+        justify-content: center;
         gap: 1.5rem;
-        margin-top: 1.5rem;
     }
 
     .home-detail {
@@ -1161,23 +1159,26 @@ section.active {
     @media (max-width: 350px) {
         header {
             padding: 1rem 3%;
-            /* Still some padding but minimal */
+            gap: 0.5rem;
         }
 
         .logo {
-            font-size: 1.6rem;
-            /* Smaller logo as requested by layout needs */
+            font-size: 1.4rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 50%;
         }
 
         .header-actions {
-            gap: 0.8rem;
-            /* Tight gap */
+            gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .menu-icon-open,
         .menu-icon-close,
         .change-theme {
-            font-size: 2rem !important;
+            font-size: 1.8rem !important;
         }
     }
 
