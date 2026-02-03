@@ -47,7 +47,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     })
 })
 
-// Carousel Projects
+// Carousel Projects - SEMPRE 1 SLIDE
 const track = document.querySelector('.carousel-track');
 const prevButton = document.querySelector('.prev-btn');
 const nextButton = document.querySelector('.next-btn');
@@ -55,7 +55,7 @@ const nextButton = document.querySelector('.next-btn');
 if (track && prevButton && nextButton) {
     const cards = Array.from(track.children);
     let currentIndex = 0;
-    let itemsPerPage = 3; // Default
+    let itemsPerPage = 1; // SEMPRE 1 SLIDE
 
     // Function to calculate and set card widths
     const setCardDimensions = () => {
@@ -64,14 +64,8 @@ if (track && prevButton && nextButton) {
         const style = window.getComputedStyle(track);
         const gap = parseFloat(style.gap) || 0;
 
-        // Responsiveness: 3 on desktop, 2 on tablet, 1 on mobile
-        if (window.innerWidth < 768) {
-            itemsPerPage = 1;
-        } else if (window.innerWidth < 991) {
-            itemsPerPage = 2;
-        } else {
-            itemsPerPage = 3;
-        }
+        // SEMPRE 1 item por página
+        itemsPerPage = 1;
 
         // Calculate width: (TotalWidth - (TotalGaps)) / Items
         const totalGapWidth = gap * (itemsPerPage - 1);
@@ -196,20 +190,18 @@ if (track && prevButton && nextButton) {
 }
 
 /* =============== SCROLL REVEAL ANIMATION =============== */
-/* =============== SCROLL REVEAL ANIMATION =============== */
 const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
-    duration: 1000, /* Faster duration */
-    delay: 200, /* Shorter delay */
-    // reset: true // Animations repeat
+    duration: 1000,
+    delay: 200,
 })
 
 sr.reveal(`.home-detail`, { origin: 'left' })
 sr.reveal(`.home-img`, { origin: 'right' })
 sr.reveal(`.sobre-img`, { origin: 'left' })
 sr.reveal(`.sobre-content`, { origin: 'right' })
-sr.reveal(`.carousel-container`, { origin: 'bottom' }) /* Animate container instead of cards */
+sr.reveal(`.carousel-container`, { origin: 'bottom' })
 sr.reveal(`.contato-forms`, { origin: 'left' })
 sr.reveal(`.contato-content`, { origin: 'right' })
 sr.reveal(`.section-title`, { origin: 'top' })
@@ -247,7 +239,6 @@ window.addEventListener('scroll', scrollActive)
 /* =============== SHOW SCROLL UP =============== */
 const scrollUp = () => {
     const scrollUp = document.getElementById('scroll-up')
-    // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
     this.scrollY >= 350 ? scrollUp.classList.add('show-scroll') :
         scrollUp.classList.remove('show-scroll')
 }
@@ -258,27 +249,20 @@ const themeButton = document.getElementById('theme-button')
 const lightTheme = 'light-theme'
 const iconTheme = 'bx-sun'
 
-// Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem('selected-theme')
 const selectedIcon = localStorage.getItem('selected-icon')
 
-// We obtain the current theme that the interface has by validating the dark-theme class
 const getCurrentTheme = () => document.body.classList.contains(lightTheme) ? 'dark' : 'light'
 const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx bx-moon' : 'bx bx-sun'
 
-// We validate if the user previously chose a topic
 if (selectedTheme) {
-    // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
     document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](lightTheme)
     themeButton.classList[selectedIcon === 'bx bx-moon' ? 'add' : 'remove'](iconTheme)
 }
 
-// Activate / deactivate the theme manually with the button
 themeButton.addEventListener('click', () => {
-    // Add or remove the light / dark icon
     document.body.classList.toggle(lightTheme)
     themeButton.classList.toggle(iconTheme)
-    // We save the theme and the current icon that the user chose
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
