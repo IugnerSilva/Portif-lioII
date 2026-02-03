@@ -1158,7 +1158,7 @@ section.active {
     .projetos-card {
         width: 100%;
         height: auto;
-        min-height: auto;
+        min-height: 550px;
         background: #0b0b0b;
         border: 1px solid #1f1f1f;
         border-radius: 1.5rem;
@@ -1172,8 +1172,8 @@ section.active {
 
 
     .projetos-img {
-        height: 200px;
-        min-height: 200px;
+        height: 350px;
+        min-height: 350px;
         width: 100%;
         object-fit: cover !important;
         padding: 0;
