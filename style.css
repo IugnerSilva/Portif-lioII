@@ -1106,7 +1106,7 @@ section.active {
 /* Celulares Pequenos */
 @media (max-width: 450px) {
     .sobre-content {
-        margin-bottom: 20rem;
+        margin-bottom: 15rem;
     }
 
     header {
