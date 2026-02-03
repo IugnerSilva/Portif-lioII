@@ -208,7 +208,7 @@ sr.reveal(`.section-title`, { origin: 'top' })
 
 /* =============== TYPED JS =============== */
 const typed = new Typed('.multiple-text', {
-    strings: ['Desenvolvedor Fullstack', 'Designer UI/UX', 'Freelancer'],
+    strings: ['Desenvolvedor Fullstack', 'Freelancer'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
