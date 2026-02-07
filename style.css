@@ -35,10 +35,12 @@ body.light-theme {
 }
 
 .change-theme {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--white-color);
     cursor: pointer;
     transition: .3s;
+    display: inline-flex;
+    align-items: center;
 }
 
 .header-actions {
@@ -47,6 +49,8 @@ body.light-theme {
     gap: 1.5rem;
     flex-shrink: 0;
     position: relative;
+    order: 3;
+    /* Ensure it stays on the right */
 }
 
 .change-theme:hover {
@@ -100,6 +104,11 @@ nav a {
 nav a:hover,
 nav a.active {
     color: var(--main-color);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
 }
 
 .menu-icon-open,
@@ -553,8 +562,8 @@ section.active {
 }
 
 .projetos-card {
-    height: auto;
-    min-height: 500px;
+    margin-top: 3rem;
+    height: 600px;
     background-color: var(--bg-color);
     border-radius: 1.5rem;
     overflow: visible;
@@ -573,9 +582,10 @@ section.active {
 }
 
 .projetos-img {
-    width: 45%;
+    position: relative;
+    width: 55%;
     /* Slightly adjusted */
-    height: auto;
+    height: 600px;
     min-height: 450px;
     object-fit: cover !important;
     background: #f5f5f5;
@@ -590,8 +600,9 @@ section.active {
 }
 
 .projetos-data {
+    margin-top: 11rem;
     position: relative;
-    width: 55%;
+    width: 45%;
     /* Adjusted to match img */
     height: auto;
     background: transparent;
@@ -1068,6 +1079,10 @@ section.active {
         /* Reset margin desktop */
     }
 
+    header.menu-open .nav-menu a {
+        transform: translateY(0);
+    }
+
     .home {
         flex-direction: column-reverse;
         gap: 1rem;
@@ -1154,6 +1169,7 @@ section.active {
     .projetos-data {
         width: 100%;
         padding: 2rem;
+        margin-top: 0;
     }
 
     .card-title {
@@ -1308,11 +1324,13 @@ section.active {
 
     .projetos-card {
         flex-direction: column;
+        height: auto;
     }
 
     .projetos-data {
         width: 100%;
         padding: 2rem;
+        margin-top: 0;
     }
 
     .carousel-track {
@@ -1414,8 +1432,7 @@ section.active {
         }
 
         .menu-icon-open,
-        .menu-icon-close,
-        .change-theme {
+        .menu-icon-close {
             font-size: 1.8rem !important;
         }
     }
