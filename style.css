@@ -12,7 +12,7 @@
 
 html,
 body {
-    overflow-x: hidden !important;
+    overflow-x: hidden;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -150,8 +150,10 @@ header.menu-open .menu-icon-close {
 section {
     position: relative;
     width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     min-height: 100vh;
-    padding: 10rem 9% 1rem;
+    padding: 10rem 5% 1rem;
 }
 
 section.active {
@@ -164,7 +166,7 @@ section.active {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20rem;
+    gap: clamp(5rem, 15vw, 20rem);
 }
 
 .home-detail h1 {
@@ -263,8 +265,8 @@ section.active {
 
 .home-img .img-box {
     position: relative;
-    width: 32vw;
-    height: 32vw;
+    width: clamp(280px, 32vw, 450px);
+    height: clamp(280px, 32vw, 450px);
     border-radius: 50%;
     padding: 10px;
     display: flex;
@@ -392,8 +394,8 @@ section.active {
 
 .sobre-img .img-box {
     position: relative;
-    width: 32vw;
-    height: 32vw;
+    width: clamp(280px, 32vw, 450px);
+    height: clamp(280px, 32vw, 450px);
     border-radius: 50%;
     padding: 10px;
     display: flex;
