@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
     <title>Document</title>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
@@ -153,6 +153,10 @@
                         <i class='bxl bx-github skill-icon'></i>
                         <span class="skill-name">Github</span>
                     </div>
+                    <div class="skill-box">
+                        <i class='bx bx-brain skill-icon'></i>
+                        <span class="skill-name">IAs</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -169,12 +173,85 @@
 
     <section class="projetos" id="projetos">
         <h2 class="section-title button" style="--i:6;">Projetos</h2>
+
+        <div class="projetos-filter button" style="--i:6;">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="ai">Projetos com IA</button>
+            <button class="filter-btn" data-filter="web">Projetos sem IA</button>
+        </div>
+
         <div class="projetos-content button" style="--i:6;">
             <i class='bx bx-chevron-left carousel-btn prev-btn'></i>
             <i class='bx bx-chevron-right carousel-btn next-btn'></i>
             <div class="carousel-container">
                 <div class="carousel-track">
-                    <article class="projetos-card">
+                    <article class="projetos-card ai-project">
+                        <img src="imagens/iug.jpeg" alt="" class="projetos-img">
+                        <div class="projetos-data">
+                            <div>
+                                <span class="projetos-category ia-tag">Inteligência Artificial</span>
+                                <h3 class="card-title">GenArt AI</h3>
+                                <p class="projetos-descricao">
+                                    Gerador de arte digital utilizando Difusão Estável para criar imagens a partir de
+                                    texto.
+                                </p>
+                                <div class="projetos-skills">
+                                    <div class="p-skill"><i class='bxl bx-python'></i> <span>Python</span></div>
+                                    <div class="p-skill"><i class='bx bx-bot'></i> <span>PyTorch</span></div>
+                                    <div class="p-skill"><i class='bxl bx-react'></i> <span>React</span></div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <a href="#" target="_blank" class="gitbtn2">Ver Projeto</a>
+                                <a href="#" class="gitbtn2">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projetos-card ai-project">
+                        <img src="imagens/iug.jpeg" alt="" class="projetos-img">
+                        <div class="projetos-data">
+                            <div>
+                                <span class="projetos-category ia-tag">Inteligência Artificial</span>
+                                <h3 class="card-title">MindBot</h3>
+                                <p class="projetos-descricao">
+                                    Chatbot inteligente integrado com GPT-4 para assistência em programação e estudos.
+                                </p>
+                                <div class="projetos-skills">
+                                    <div class="p-skill"><i class='bxl bx-nodejs'></i> <span>Node.js</span></div>
+                                    <div class="p-skill"><i class='bx bx-brain'></i> <span>OpenAI</span></div>
+                                    <div class="p-skill"><i class='bxl bx-typescript'></i> <span>TS</span></div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <a href="#" target="_blank" class="gitbtn2">Ver Projeto</a>
+                                <a href="#" class="gitbtn2">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="projetos-card ai-project">
+                        <img src="imagens/iug.jpeg" alt="" class="projetos-img">
+                        <div class="projetos-data">
+                            <div>
+                                <span class="projetos-category ia-tag">Inteligência Artificial</span>
+                                <h3 class="card-title">SentiAnalysis</h3>
+                                <p class="projetos-descricao">
+                                    Análise de sentimentos em tempo real para redes sociais usando NLP e Dashboards.
+                                </p>
+                                <div class="projetos-skills">
+                                    <div class="p-skill"><i class='bxl bx-python'></i> <span>Python</span></div>
+                                    <div class="p-skill"><i class='bx bx-stats'></i> <span>NLP</span></div>
+                                    <div class="p-skill"><i class='bxl bx-vuejs'></i> <span>Vue.js</span></div>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <a href="#" target="_blank" class="gitbtn2">Ver Projeto</a>
+                                <a href="#" class="gitbtn2">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="projetos-card web-project">
                         <img src="imagens/iug.jpeg" alt="" class="projetos-img">
                         <div class="projetos-data">
                             <div>
@@ -197,7 +274,7 @@
                         </div>
                     </article>
 
-                    <article class="projetos-card">
+                    <article class="projetos-card web-project">
                         <img src="imagens/iug.jpeg" alt="" class="projetos-img">
                         <div class="projetos-data">
                             <div>
@@ -221,7 +298,7 @@
                         </div>
                     </article>
 
-                    <article class="projetos-card">
+                    <article class="projetos-card web-project">
                         <img src="imagens/iug.jpeg" alt="" class="projetos-img">
                         <div class="projetos-data">
                             <div>
@@ -245,7 +322,7 @@
                         </div>
                     </article>
 
-                    <article class="projetos-card">
+                    <article class="projetos-card web-project">
                         <img src="imagens/iug.jpeg" alt="" class="projetos-img">
                         <div class="projetos-data">
                             <div>
@@ -269,7 +346,7 @@
                         </div>
                     </article>
 
-                    <article class="projetos-card">
+                    <article class="projetos-card web-project">
                         <img src="imagens/iug.jpeg" alt="" class="projetos-img">
                         <div class="projetos-data">
                             <div>
@@ -292,7 +369,7 @@
                         </div>
                     </article>
 
-                    <article class="projetos-card">
+                    <article class="projetos-card web-project">
                         <img src="imagens/iug.jpeg" alt="" class="projetos-img">
                         <div class="projetos-data">
                             <div>
@@ -315,7 +392,7 @@
                         </div>
                     </article>
 
-                    <article class="projetos-card">
+                    <article class="projetos-card web-project">
                         <img src="imagens/iug.jpeg" alt="" class="projetos-img">
                         <div class="projetos-data">
                             <div>
