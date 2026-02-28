@@ -625,10 +625,14 @@ section.active {
     height: 500px;
     background-color: var(--bg-color);
     border-radius: 1.5rem;
-    overflow: visible;
-    /* Changed from hidden to allow icons/shadows to show */
-    display: flex;
-    flex-direction: row;
+    overflow: hidden;
+    /* Changed to hidden to ensure image fits rounded corners */
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "img data"
+        "img buttons";
     flex-shrink: 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.3s ease;
@@ -641,8 +645,9 @@ section.active {
 }
 
 .projetos-img {
+    grid-area: img;
     position: relative;
-    width: 55%;
+    width: 100%;
     /* Slightly adjusted */
     height: 500px;
     min-height: 450px;
@@ -659,18 +664,16 @@ section.active {
 }
 
 .projetos-data {
-    margin-top: 11rem;
+    grid-area: data;
     position: relative;
-    width: 45%;
-    /* Adjusted to match img */
+    width: 100%;
     height: auto;
     background: transparent;
     backdrop-filter: none;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 2.5rem;
+    justify-content: center;
+    padding: 3rem 2.5rem 1rem;
     opacity: 1;
     transform: none;
 }
@@ -787,13 +790,14 @@ section.active {
 }
 
 .buttons {
+    grid-area: buttons;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.2rem;
     margin-top: 1.8rem;
-    padding-bottom: 0;
+    padding-bottom: 2rem;
 }
 
 /* Revert gitbtn2 to button style */
@@ -1331,9 +1335,8 @@ section.active {
 
 }
 
-/* Celulares Pequenos */
-@media (max-width: 450px) {
 
+@media (max-width: 450px) {
 
     header {
         padding: 1.5rem 4%;
