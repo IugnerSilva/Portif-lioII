@@ -693,7 +693,7 @@ section.active {
 .card-title {
     font-size: 2.8rem;
     font-weight: 700;
-    color: var(--white-color);
+    color: white;
     margin-bottom: 1rem;
     line-height: 1.2;
 }
@@ -768,7 +768,7 @@ section.active {
 
 .p-skill span {
     font-size: 1.2rem;
-    color: var(--white-color);
+    color: white;
     font-weight: 500;
 }
 
@@ -1380,10 +1380,34 @@ section.active {
         margin-bottom: 1rem;
     }
 
-    /* --- DESIGN UNIFICADO (Baseado no Modelo 03) --- */
+
+    .sobre {
+        flex-direction: column;
+        text-align: center;
+        gap: 5rem;
+        padding-top: 5rem;
+    }
+
+    .sobre-content {
+        margin-left: -13rem;
+        width: 100%;
+    }
+
+    .sobre-content h2 {
+        text-align: center;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+
+    .projetos-filter {
+        margin-top: -5rem;
+    }
+
     .projetos-card {
         width: 100%;
-        height: auto;
+        height: 100%;
         min-height: 550px;
         background: #0b0b0b;
         border: 1px solid #1f1f1f;
@@ -1398,8 +1422,8 @@ section.active {
 
 
     .projetos-img {
-        height: 350px;
-        min-height: 350px;
+        height: 250px;
+        min-height: 250px;
         width: 100%;
         object-fit: cover !important;
         padding: 0;
@@ -1407,15 +1431,16 @@ section.active {
         display: block;
     }
 
-    .projetos-card {
-        flex-direction: column;
-        height: auto;
-    }
-
     .projetos-data {
         width: 100%;
         padding: 2rem;
         margin-top: 0;
+    }
+
+    .buttons {
+        position: fixed;
+        margin-left: -1rem;
+        margin-top: 55rem;
     }
 
     .carousel-track {
@@ -1431,6 +1456,10 @@ section.active {
     /* Ocultar botões de navegação no mobile para focar no swipe */
     .carousel-btn {
         display: none !important;
+    }
+
+    .contato-container {
+        margin-top: -5rem;
     }
 
     .home-detail .btn-sci {
